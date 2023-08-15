@@ -1,0 +1,31 @@
+﻿Nama        : Anisa Yuniarti 
+Kelas        : D_Flutter
+
+
+Soal 1 Prioritas
+1. Tuliskan 5 Bahasa Pemrograman Untuk Membuat aplikasi Mobile.
+        Jawaban : 
+* Java untuk Aplikasi Desktop dan Mobile
+* Kotlin untuk Aplikasi Android, disisi lain bisa untuk web Front end, Back end, bahkan Data Science.
+* Objective-C untuk Aplikasi Mac OS dan  iOS
+* Swift untuk Aplikasi Mac OS dan iOS
+* Dart untuk Aplikasi Mobile, Desktop, dan Server.
+
+
+2. Cari dan tuliskan 5 aplikasi yang berjalan pada sistem operasi Android namun tidak pada sistem operasi iOS
+        Jawaban:
+1. Clean Master (Boost & Applock)
+2. Airdroid
+3. Opera Max
+4. Aplikasi Launcher Android
+5. ES File Explorer File Manager
+        
+
+
+Daftar Referensi
+
+
+[1] https://www.dicoding.com/blog/bahasa-pemrograman-untuk-pengembangan-aplikasi-mobile/ 
+Diakses tanggal 15 Agustus 2023
+[2] https://jalantikus.com/tips/aplikasi-android-tidak-ada-di-iphone/ .
+Diakses tanggal 15 Agustus 2023
