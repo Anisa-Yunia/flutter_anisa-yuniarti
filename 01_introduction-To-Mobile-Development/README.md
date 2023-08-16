@@ -2,9 +2,9 @@
 Perangkat Lunak yang tersimpan dan dapat dikenadalikan pada sistem komputer, terbentuk dari perintah-perintah dan tidak memiliki bentuk fisik 
 
 Jenis Software : 
--Website 
--Desktop 
--Mobile
+- Website 
+- Desktop 
+- Mobile
 
 # 2. Pengembangan Software
 Software merupakan kumpulan perintah yang teroganisir, perintah-perintah tersebut biasanya di buat oleh software developer dengan bahasa pemograman
