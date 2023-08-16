@@ -1,0 +1,26 @@
+﻿Nama        : Anisa Yuniarti 
+Kelas        : D_Flutter
+
+
+Soal  Prioritas 2
+1. Cari dan tuliskan 5 aplikasi yang berjalan pada sistem operasi iOS namun tidak pada sistem operasi Android
+        Jawab:
+1. iMovie
+2. iWork
+3. Apple Maps
+4. iCould Drive
+5. Apple TV
+
+
+2. Cari 2 Buah Software yang berjalan pada platform website dan juga desktop!
+Jawab:
+* Telegram
+* Discord
+ 
+
+
+Daftar Referensi 
+
+
+[1] https://haxina.com/aplikasi-yang-hanya-ada-di-iphone/
+Diakses tanggal 15 Agustus 2023
