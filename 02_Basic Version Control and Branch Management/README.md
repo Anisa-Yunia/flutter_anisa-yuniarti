@@ -30,10 +30,10 @@ git setting up
 - git pull
 
 - git branch :
- - to show all branch : git branch --list
- - to create new branch : git branch <branch>
- - to force delete spesific branch : git branch -D <branch>
- - to list remote branch : git branch -a
+    - to show all branch : git branch --list
+    - to create new branch : git branch <branch>
+    - to force delete spesific branch : git branch -D <branch>
+    - to list remote branch : git branch -a
 
 - git merge:
  - to start a new feature:  git checkout -b new-feature master
