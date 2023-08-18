@@ -11,8 +11,8 @@ Git dapat di install di Mac, Windows, Linux
 
 git setting up
 - git config :  
- - git config --global user.name "john doe"
- - git config --global user.email "johndoe@mail.com"
+    - git config --global user.name "john doe"
+    - git config --global user.email "johndoe@mail.com"
 - git init
 - git clone
 - git status
