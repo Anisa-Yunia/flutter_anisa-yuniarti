@@ -36,14 +36,14 @@ git setting up
     - to list remote branch : git branch -a
 
 - git merge:
- - to start a new feature:  git checkout -b new-feature master
- - to edit some files: 
-    - git add <file>
-    - git commit -m "Start a feature"
- - to edit some files: 
-    - git add <file>
-    - git commit -m "finish a feature"
- - to merge in the new-feature branch:
-    - git checkout master
-    - git merge new-feature
-    - git branch -d new-feature 
+    - to start a new feature:  git checkout -b new-feature master
+    - to edit some files: 
+        - git add <file>
+        - git commit -m "Start a feature"
+    - to edit some files: 
+        - git add <file>
+        - git commit -m "finish a feature"
+    - to merge in the new-feature branch:
+        - git checkout master
+        - git merge new-feature
+        - git branch -d new-feature 
