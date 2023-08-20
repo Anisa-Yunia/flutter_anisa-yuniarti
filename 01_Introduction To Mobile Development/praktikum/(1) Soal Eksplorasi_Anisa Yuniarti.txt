@@ -1,0 +1,35 @@
+﻿Nama        : Anisa Yuniarti 
+Kelas        : D_Flutter
+
+
+Soal  Eksplorasi
+1. Jelaskan Perbedaan antara pengembangan aplikasi mobile secara hybrid dan pengembangan aplikasi mobile secara native
+        Jawaban : 
+* Biaya 
+Aplikasi mobile native membutuhkan masing-masing developer android dan ios dalam proses development aplikasi. Sedangkan untuk aplikasi mobile hybrid hanya dibutuhkan satu developer untuk dua platform 
+* Waktu 
+Waktu yang dibutuhkan untuk mengembangkan aplikasi dengan mobile native cukup lama.
+* Device features
+Aplikasi native mendapat akses penuh ke perangkat mobile karena langsung dispesifikasikan dengan bahasa pemrograman sesuai platformnya. Hal yang sama juga berlaku untuk aplikasi hybrid namun performanya tidak sebaik aplikasi native
+* Kecepatan
+Aplikasi mobile native lebih cepat beroperasi dibandingkan dengan mobile hybrid yang masih menggunakan pemrograman HTML
+* Maintenance
+Proses maintenance juga harus dipertimbangkan dalam membangun sebuah aplikasi mobile. Perubahan dalam aplikasi mobile native membutuhkan waktu dan cenderung sulit dalam pengembangannya karena aplikasi harus dikemas kedalam versi baru untuk melakukan update. Setelah itu dipublikasi ke store masing-masing device untuk selanjutnya di unduh dan diinstall kembali.
+* Skala
+        Aplikasi mobile native sangat disarankan untuk kebutuhan dengan skala besar karena kaya dengan interaksi UI/UX dan performa yang baik. Sedangkan untuk perusahaan dengan skala kecil disarankan menggunakan hybrid dengan alasan waktu dan modal yang terbatas.
+
+
+2. Sebutkan contoh kasus yang tepat untuk pengembangan aplikasi mobile secara hybrid. 
+        Jawaban:
+1. Twitter
+2. Gmail 
+3. evernote
+
+
+
+
+Daftar Referensi
+
+
+[1]https://www.pkp.co.id/en/blog-grid/31-teknologi-informasi/84-aplikasi-mobile-native-vs-mobile-hybrid  .Diakses tanggal 20 Agustus 2023
+[2] https://rifqimulyawan.com/blog/pengertian-hybrid-app/ .Diakses tanggal 20 Agustus 2023
