@@ -1,6 +1,6 @@
 # FUDAMENTAL DART
 
-## apa itu dart
+## Apa itu Dart
 dart adalah bahasa pemograman yang dirancang untuk membuat aplikasi agar dapaet berjalan dengan cepat. aplikasi yang dibuat dengan dart adalah aplikasi yang berjalan disisi client (frontend)
 
 ## Program Dart Sederhana
