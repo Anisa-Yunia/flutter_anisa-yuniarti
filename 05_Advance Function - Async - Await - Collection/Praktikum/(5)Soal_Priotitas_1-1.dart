@@ -1,4 +1,5 @@
-List<int> multiplyList(List<int> data, int pengali) {
+
+Future<List<int>> multiplyList(List<int> data, int pengali) async {
   List<int> hasilPerkalian = [];
 
   for (int i = 0; i < data.length; i++) {
@@ -9,11 +10,12 @@ List<int> multiplyList(List<int> data, int pengali) {
   return hasilPerkalian;
 }
 
-void main() {
+void main() async {
   List<int> data = [1, 2, 3, 4, 5];
   int pengali = 5;
 
-  List<int> hasil = multiplyList(data, pengali);
+  List<int> hasil = await multiplyList(data, pengali);
 
-  print("Hasil perkalian: $hasil");
+  print("List Awal: $data");
+  print('hasil perkalian : $hasil');
 }

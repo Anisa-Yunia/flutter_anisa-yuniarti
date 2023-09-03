@@ -7,7 +7,7 @@ int faktorial(int n) {
 }
 
 void main() {
-  int angkaA = 10; 
+  int angkaA = 5; 
   int hasilSatu = faktorial(angkaA);
   print('Faktorial dari $angkaA adalah $hasilSatu');
 
