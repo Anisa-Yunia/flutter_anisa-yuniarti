@@ -1,15 +1,15 @@
 # Introduction Flutter Widget
-1. Perkenalan Flutter
-## Apa sih Itu Flutter?
+- Perkenalan Flutter
+### Apa sih Itu Flutter?
 Flutter adalah sebuah framework yang dibangun menggunakan bahasa pemrograman Dart, dan dibuat oleh Google. Alat Pengembangan antarmuka pengguna yang digunakan membuat aplikasi mobile, desktop, dan web
 
 ### Keunggulan Flutter
-- Mudah digunakan dan dipelajari
-- Produktivitas tinggi
-- Dokumentasi lengkap
-- Komunitas yang berkembang
+1. Mudah digunakan dan dipelajari
+1. Produktivitas tinggi
+1. Dokumentasi lengkap
+1. Komunitas yang berkembang
 
-1. Widget
+- Widget
 Berupa class, digunakan untuk membentuk UI, dapat terdiri dari beberapa widget lainnya
 
 ### Jenis Widget 
