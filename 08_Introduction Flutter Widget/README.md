@@ -13,5 +13,17 @@ Flutter adalah sebuah framework yang dibangun menggunakan bahasa pemrograman Dar
 Berupa class, digunakan untuk membentuk UI, dapat terdiri dari beberapa widget lainnya
 #### Jenis Widget 
 1. Stateless Widget
+    - Tidak bergantung pada perubahan data
+    - Hanya fokus pada tampilan
+    - dibuat dengan extands pada class statelessWidget
 1. Stateful Widget
+    - mengutamakan perubahan data 
+    - dibuat dengan extands pada class statefulWidget
+    - 1 widget menggunakn 2 class(widget dan state)
 1. Built in Widget
+    - widget yang dapat langsung digunakan
+    - sudah terinstall bersama flutter
+        - Appbar : Membentuk bar aplikasi yang terletak pada bagian atas halaman 
+        - MaterialApp : Membangun aplikasi dengan desain material
+        - scaffold : membentuk sebuah halaman
+        - Text : Menampilkan teks
