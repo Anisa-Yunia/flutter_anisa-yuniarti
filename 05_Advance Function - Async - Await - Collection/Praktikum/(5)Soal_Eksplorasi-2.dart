@@ -1,12 +1,12 @@
 void main() {
-  List<int> data = [js];
+  List<String> data = ['js','js'];
 
 
   Map<String, int> frekuensi = {};
 
   for (String kata in data) {
     if (frekuensi.containsKey(kata)) {
-      frekuensi[kata] = frekuensi[kata] + 1;
+     frekuensi[kata];
     } else {
       frekuensi[kata] = 1;
     }
