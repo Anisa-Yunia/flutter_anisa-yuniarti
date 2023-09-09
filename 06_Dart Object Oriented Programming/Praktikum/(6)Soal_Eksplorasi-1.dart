@@ -35,9 +35,9 @@ class TokoBuku {
 void main() {
   TokoBuku toko = TokoBuku();
 
-  toko.tambahBuku('Buku 1', 'Penerbit A', 19.99, 'Fiksi');
-  toko.tambahBuku('Buku 2', 'Penerbit B', 14.99, 'Non-Fiksi');
-  toko.tambahBuku('Buku 3', 'Penerbit C', 24.99, 'Fiksi');
+  toko.tambahBuku('LKS FISIKA kelas XI', 'Penerbit A', 50.39, 'Pelajaran');
+  toko.tambahBuku('The history of Japan', 'Penerbit B', 14.59, 'Non-Fiksi');
+  toko.tambahBuku('Naruto Vol 15', 'Penerbit C', 24.99, 'Fiksi');
 
   print('Daftar Buku:');
   for (var buku in toko.semuaBuku()) {
