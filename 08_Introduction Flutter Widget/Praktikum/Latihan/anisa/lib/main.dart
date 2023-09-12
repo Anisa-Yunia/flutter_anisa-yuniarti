@@ -30,6 +30,7 @@ class HelloWorld extends StatelessWidget {
           )),
         appBar: AppBar(
           title: const Text('Home'),
+          centerTitle: true,
         ),
         body: const Text('Halo nama aku anisa'),
         bottomNavigationBar: BottomNavigationBar(
