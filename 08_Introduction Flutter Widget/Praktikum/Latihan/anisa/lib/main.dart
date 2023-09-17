@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const HelloWorld());
-
 }
+
 class HelloWorld extends StatelessWidget {
   const HelloWorld({super.key});
 
@@ -11,30 +11,28 @@ class HelloWorld extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        drawer: Drawer(
-          child: ListView(
+          drawer: Drawer(
+              child: ListView(
             children: [
               const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.amber
-                ),
+                decoration: BoxDecoration(color: Colors.amber),
                 child: Text('Drawer Header'),
               ),
               ListTile(
-                title:  Text('Menu 1'),
+                title: Text('Menu 1'),
               ),
               ListTile(
-                title:  Text('Menu 2'),
+                title: Text('Menu 2'),
               )
             ],
           )),
-        appBar: AppBar(
-          title: const Text('Home'),
-          centerTitle: true,
-        ),
-        body: const Text('Halo nama aku anisa'),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          appBar: AppBar(
+            title: const Text('Hello Alterra'),
+            centerTitle: true,
+          ),
+          body: const Text('Halo nama aku anisa'),
+          bottomNavigationBar:
+              BottomNavigationBar(items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.abc_outlined),
               label: 'User Verifikasi',
@@ -43,12 +41,7 @@ class HelloWorld extends StatelessWidget {
               icon: Icon(Icons.abc_outlined),
               label: 'User Verifikasi',
             ),
-            ]
-
-        )
-         ),
-         
+          ])),
     );
   }
 }
-
