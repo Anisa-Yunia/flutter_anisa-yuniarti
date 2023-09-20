@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a711800b-f1da-4720-91d0-658092e88eee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/10_Platform Widget/Praktikum/latihan/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/10_Platform Widget/Praktikum/latihan/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12_Advance Form Flutter/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/12_Advance Form Flutter/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="a711800b-f1da-4720-91d0-658092e88eee" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,15 +21,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "D:/flutter_anisa-yuniarti"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/flutter_anisa-yuniarti&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="latihan" type="AndroidRunConfigurationType" factoryName="Android App">
       <option name="DEPLOY" value="true" />
