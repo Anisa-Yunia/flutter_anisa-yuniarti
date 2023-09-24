@@ -43,6 +43,7 @@ class Contact extends StatefulWidget {
 class _ContactState extends State<Contact> {
   var nameController = TextEditingController();
   var phoneController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   String textFieldData = '';
 
   @override
@@ -74,88 +75,103 @@ class _ContactState extends State<Contact> {
             ),
           ],
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Divider(),
-            TextField(
+        Form(
+          child: Column(
+            key: _formKey,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Divider(),
+              TextFormField(
+                validator: ($nameController) {
+                  if ($nameController == null) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
                 controller: nameController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(gapPadding: 10),
                   labelText: 'Name',
-                  hintText: 'insert Your name',
+                  hintText: 'Insert Your Name',
                 ),
-                onChanged: (nameControllers) {
+                onChanged: (nameController) {
                   print('$nameController');
-                }),
-            SizedBox(
-              height: 10,
-            ),
-            TextField(
-              controller: phoneController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(gapPadding: 10),
-                labelText: 'Number',
-                hintText: '+62',
+                },
               ),
-              onChanged: (phoneController) {
-                print('$phoneController');
-              },
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  child: Text('Sumbit'),
-                  onPressed: () {
-                    setState(() {
-                      contacts.add({
-                        "name": "${nameController.text}",
-                        "phone": "${phoneController.text}"
-                      });
-                    });
-                    print('contacts : $contacts');
-                  },
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: phoneController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(gapPadding: 10),
+                  labelText: 'Number',
+                  hintText: '+62',
                 ),
-              ],
-            ),
-            Divider(),
-            SizedBox(
-              height: 200,
-              child: ListView.builder(
-                  itemCount: contacts.length, //3
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      leading: const Icon(Icons.account_circle_outlined),
-                      title: Text('${contacts[index]["name"]}'),
-                      subtitle: Text('${contacts[index]["phone"]} '),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.delete),
-                                onPressed: () {
-                                  setState(() {
-                                    contacts.removeAt(index);
-                                  });
-                                },
-                              ),
-                              IconButton(
-                                  icon: const Icon(Icons.edit),
-                                  onPressed: () => AlertEdit(context, index)),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-            )
-          ],
+                onChanged: (phoneController) {
+                  print('$phoneController');
+                },
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    child: Text('Sumbit'),
+                    onPressed: () {
+                      setState(() {
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          );
+                        }
+                        contacts.add({
+                          "name": "${nameController.text}",
+                          "phone": "${phoneController.text}"
+                        });
+                      });
+                      print('contacts : $contacts');
+                    },
+                  ),
+                ],
+              ),
+              Divider(),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                    itemCount: contacts.length, //3
+                    itemBuilder: (BuildContext context, int index) {
+                      return ListTile(
+                        leading: const Icon(Icons.account_circle_outlined),
+                        title: Text('${contacts[index]["name"]}'),
+                        subtitle: Text('${contacts[index]["phone"]} '),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.delete),
+                                  onPressed: () {
+                                    setState(() {
+                                      contacts.removeAt(index);
+                                    });
+                                  },
+                                ),
+                                IconButton(
+                                    icon: const Icon(Icons.edit),
+                                    onPressed: () => AlertEdit(context, index)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              )
+            ],
+          ),
         )
       ],
     );
