@@ -34,9 +34,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("DatePicker in Flutter"),
+          title: Text("DatePicker"),
           backgroundColor: Colors.amber,
         ),
+        drawer: Drawer(
+            child: ListView(
+          children: [
+            ListTile(
+              title: Text('Setting'),
+            )
+          ],
+        )),
         body: Container(
             padding: EdgeInsets.all(15),
             height: MediaQuery.of(context).size.width / 3,
