@@ -41,10 +41,9 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  var nameController = TextEditingController();
+  var phoneController = TextEditingController();
   String textFieldData = '';
-  Color _currentColor = Colors.orange;
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +172,7 @@ class _ContactState extends State<Contact> {
     return showDialog<String>(
         context: context,
         builder: (BuildContext context) => AlertDialog(
-              title: const Text('AlertDialog Title'),
+              title: const Text('Form Edit'),
               content: Column(children: [
                 Text('name'),
                 TextField(
