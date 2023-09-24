@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 List contacts = [
   {"name": "Anisa", "phone": "+6289-5256-1481"},
@@ -44,7 +45,6 @@ class _ContactState extends State<Contact> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   String textFieldData = '';
-  Color _currentColor = Colors.orange;
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +106,43 @@ class _ContactState extends State<Contact> {
             SizedBox(
               height: 10,
             ),
+            Container(
+                padding: EdgeInsets.all(15),
+                height: MediaQuery.of(context).size.width / 3,
+                child: Center(
+                    child: TextField(
+                  //editing controller of this TextField
+                  decoration: InputDecoration(
+                      icon: Icon(Icons.calendar_today), //icon of text field
+                      labelText: "Enter Date" //label text of field
+                      ),
+                  readOnly: true,
+                  //set it true, so that user will not able to edit text
+                  onTap: () async {
+                    DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1950),
+                        //DateTime.now() - not to allow to choose before today.
+                        lastDate: DateTime(2100));
+
+                    if (pickedDate != null) {
+                      print(
+                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                      String formattedDate =
+                          DateFormat('yyyy-MM-dd').format(pickedDate);
+                      print(
+                          formattedDate); //formatted date output using intl package =>  2021-03-16
+                      setState(() {
+                        textFieldData =
+                            formattedDate; //set output date to TextField value.
+                      });
+                    } else {}
+                  },
+                ))),
+            SizedBox(
+              height: 5,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -121,6 +158,7 @@ class _ContactState extends State<Contact> {
                     print('contacts : $contacts');
                   },
                 ),
+                SizedBox(height: 5),
               ],
             ),
             Divider(),
@@ -132,7 +170,12 @@ class _ContactState extends State<Contact> {
                     return ListTile(
                       leading: const Icon(Icons.account_circle_outlined),
                       title: Text('${contacts[index]["name"]}'),
-                      subtitle: Text('${contacts[index]["phone"]} '),
+                      subtitle: Column(
+                        children: [
+                          Text('${contacts[index]["phone"]} '),
+                          Text('Tanggal gabung :${textFieldData} ')
+                        ],
+                      ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -155,9 +198,9 @@ class _ContactState extends State<Contact> {
                       ),
                     );
                   }),
-            )
+            ),
           ],
-        )
+        ),
       ],
     );
   }
