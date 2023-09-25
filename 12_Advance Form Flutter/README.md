@@ -1,18 +1,19 @@
-# flutter Form
+# flutter Advance Form
 
-### Form
-form atau formulir dapat diartikan pengisian suatu dari pengguna, isi data dapat berupa data text atau data pilihan
+advance form adalah elemen-elemen tamabahan untuk membanguan sebuah form yang lebih interaktif pada flutter
 
-- Membuat Form 
-    - menggunakan StatefulWidget
-    - Keadan Form disimpan menggunakan GlobalKey<FormState>
+### Date Picker
 
-### Input
-- TextFormField (untuk input text)
-- Radio Button
-- Checkbox
-- Dropdown
+date picker merupakan salah satu widget yang digunakan untuk memilih tanggal.
 
+date picker ini dapat di jadikan komponen dalam pembuat form untuk tanggal kelahitan, waktu pemesanan tiket, waktu reservasi, jadwal meeting dan masih banyak lagi.
 
-### Button
-bersifat seperti tombol. dapat melakukan aksi saat ditekan
+### Color Picker
+
+Widget yang dapat diguanakan untuk memilih warna, penggunaan color picker bisa digunakan untuk berbagai kondisi yang berhubungan dengan pemilihan waran.
+
+### File Picker
+
+widget ini memiliki kemampuan untuk mengakses penyimpanan dan dapat memilih dan membuka file.
+widget ini memerlukan 2 pakacge tambahan yaitu
+file_picker dan open_file
