@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +22,10 @@ class MyApp extends StatelessWidget {
           centerTitle: false,
         ),
         body: SingleChildScrollView(
-          child: MyHome(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MyHome(),
+          ),
         ),
       ),
     );
@@ -83,7 +88,6 @@ class _MyHomeState extends State<MyHome> {
                             controller: firstName,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(gapPadding: 10),
-                              labelText: 'Name',
                               hintText: 'insert Your name',
                             ),
                             onChanged: (firstname) {
@@ -106,7 +110,6 @@ class _MyHomeState extends State<MyHome> {
                             controller: lastName,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(gapPadding: 10),
-                              labelText: 'Name',
                               hintText: 'insert Your name',
                             ),
                             onChanged: (lastname) {
@@ -126,23 +129,43 @@ class _MyHomeState extends State<MyHome> {
                       controller: email,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(gapPadding: 10),
-                        labelText: 'yourmail@mail.com',
-                        hintText: 'insert Your name',
+                        hintText: 'yourmail@mail.com',
                       ),
                       onChanged: (email) {
                         print('$email');
                       }),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextField(
-                      controller: content,
-                      maxLines: null, // Setel maxLines ke null untuk textarea
-                      decoration: InputDecoration(
-                        labelText: 'Input Text',
-                        border: OutlineInputBorder(),
-                      ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text('what can we help you With?'),
+                  TextField(
+                    controller: content,
+                    keyboardType: TextInputType.multiline,
+                    maxLines: 3,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
                     ),
                   ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                      child: Text('Sumbit'),
+                      onPressed: () {
+                        setState(() {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                      title: Center(
+                                          child: Text(
+                                              "Thank You for your message")),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('Oke')),
+                                      ]));
+                        });
+                      }),
                 ],
               ),
             ],
@@ -151,4 +174,21 @@ class _MyHomeState extends State<MyHome> {
       ),
     );
   }
+
+  // Future<String?> AlertEdit(BuildContext context) {
+  //   return showDialog<String>(
+  //       context: context,
+  //       builder: (BuildContext context) => AlertDialog(
+  //               title: const Text('Informasi !'),
+  //               content: Column(children: [
+  //                 Text('Pesan Telah Terkirim!'),
+  //               ]),
+  //               actions: [
+  //                 TextButton(
+  //                     onPressed: () {
+  //                       Navigator.pop(context);
+  //                     },
+  //                     child: Text('Oke')),
+  //               ]));
+  // }
 }
