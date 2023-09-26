@@ -4,13 +4,30 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:open_file/open_file.dart';
 
 List contacts = [
-  {"name": "Anisa", "phone": "+6289-5256-1481"},
-  {"name": "Putri", "phone": "+6282-2198-8711"},
-  {"name": "Delia", "phone": "+6289-9126-1211"},
-  {"name": "Kata", "phone": "+6282-1156-1284"},
+  {
+    "name": "Anisa",
+    "phone": "+6289-5256-1481",
+    "date": "23-08-2023",
+    "color": " Color(0xff8bc34a)",
+    "file": "doc.jpeg"
+  },
 ];
+
+void _openFile(PlatformFile file) {
+  OpenFile.open(file.path);
+}
+
+void _pickFile() async {
+  final result = await FilePicker.platform.pickFiles();
+  if (result == null) return;
+
+  final file = result.files.first;
+  _openFile(file);
+}
 
 void main() {
   runApp(const MyApp());
@@ -46,14 +63,17 @@ class Contact extends StatefulWidget {
 class _ContactState extends State<Contact> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-  String textFieldData = '';
+  TextEditingController dateInput = TextEditingController();
+  Color _CurrentColor = Colors.pink;
+
+  PlatformFile? get file => null;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Center(
               child: Icon(
@@ -113,95 +133,148 @@ class _ContactState extends State<Contact> {
                 height: MediaQuery.of(context).size.width / 3,
                 child: Center(
                     child: TextField(
-                  //editing controller of this TextField
+                  controller: dateInput,
                   decoration: InputDecoration(
-                      icon: Icon(Icons.calendar_today), //icon of text field
-                      labelText: "Enter Date" //label text of field
-                      ),
+                      icon: Icon(Icons.calendar_today),
+                      labelText: "Enter Date"),
                   readOnly: true,
-                  //set it true, so that user will not able to edit text
                   onTap: () async {
                     DateTime? pickedDate = await showDatePicker(
                         context: context,
                         initialDate: DateTime.now(),
                         firstDate: DateTime(1950),
-                        //DateTime.now() - not to allow to choose before today.
                         lastDate: DateTime(2100));
 
                     if (pickedDate != null) {
-                      print(
-                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                      print(pickedDate);
                       String formattedDate =
                           DateFormat('yyyy-MM-dd').format(pickedDate);
-                      print(
-                          formattedDate); //formatted date output using intl package =>  2021-03-16
+                      print(formattedDate);
                       setState(() {
-                        textFieldData =
-                            formattedDate; //set output date to TextField value.
+                        dateInput.text = formattedDate;
                       });
                     } else {}
                   },
                 ))),
-            SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ElevatedButton(
-                  child: Text('Sumbit'),
-                  onPressed: () {
-                    setState(() {
-                      contacts.add({
-                        "name": "${nameController.text}",
-                        "phone": "${phoneController.text}"
-                      });
-                    });
-                    print('contacts : $contacts');
-                  },
+                const Text('Color'),
+                const SizedBox(height: 10),
+                Container(
+                  height: 100,
+                  width: double.infinity,
+                  color: _CurrentColor,
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 10),
+                Center(
+                  child: ElevatedButton(
+                      child: const Text('Pick Color'),
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Select a color!"),
+                                content: BlockPicker(
+                                  pickerColor: _CurrentColor,
+                                  onColorChanged: (color) {
+                                    setState(() {
+                                      _CurrentColor = color;
+                                    });
+                                  },
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text('Save'))
+                                ],
+                              );
+                            });
+                      }),
+                ),
               ],
             ),
-            Divider(),
-            SizedBox(
-              height: 200,
-              child: ListView.builder(
-                  itemCount: contacts.length, //3
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      leading: const Icon(Icons.account_circle_outlined),
-                      title: Text('${contacts[index]["name"]}'),
-                      subtitle: Column(
-                        children: [
-                          Text('${contacts[index]["phone"]} '),
-                          Text('Tanggal gabung :${textFieldData} ')
-                        ],
-                      ),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.delete),
-                                onPressed: () {
-                                  setState(() {
-                                    contacts.removeAt(index);
-                                  });
-                                },
-                              ),
-                              IconButton(
-                                  icon: const Icon(Icons.edit),
-                                  onPressed: () => AlertEdit(context, index)),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Pick Files'),
+                const SizedBox(height: 10),
+                Center(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        _pickFile();
+                      },
+                      child: Text('Pick and Open File')),
+                )
+              ],
+            )
           ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            ElevatedButton(
+              child: Text('Sumbit'),
+              onPressed: () {
+                setState(() {
+                  contacts.add({
+                    "name": "${nameController.text}",
+                    "phone": "${phoneController.text}",
+                    "date": "${dateInput.text}",
+                    "color": "${_CurrentColor}",
+                    "file": "_openFile(file!)"
+                  });
+                });
+                print('contacts : $contacts');
+              },
+            ),
+            SizedBox(height: 5),
+          ],
+        ),
+        Divider(),
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+              itemCount: contacts.length, //3
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  leading: const Icon(Icons.account_circle_outlined),
+                  title: Text('${contacts[index]["name"]}'),
+                  subtitle: Column(
+                    children: [
+                      Text('${contacts[index]["phone"]} '),
+                      Text('Tanggal gabung :${contacts[index]["date"]}'),
+                      Text(' warna : ${contacts[index]["color"]}')
+                    ],
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () {
+                              setState(() {
+                                contacts.removeAt(index);
+                              });
+                            },
+                          ),
+                          IconButton(
+                              icon: const Icon(Icons.edit),
+                              onPressed: () => AlertEdit(context, index)),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              }),
         ),
       ],
     );
