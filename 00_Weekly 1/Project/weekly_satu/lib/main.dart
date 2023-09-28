@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:weekly_satu/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 70, 36, 129)),
+        useMaterial3: true,
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Weekly',
       home: Scaffold(
+        drawer: MyDrawer(),
         appBar: AppBar(
-          title: Text('Homepage'),
+          title: Text('Keluh Kesah'),
           centerTitle: false,
         ),
         body: SingleChildScrollView(
@@ -26,6 +31,22 @@ class MyApp extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: MyHome(),
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Setting',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              label: 'explore',
+            ),
+          ],
         ),
       ),
     );
@@ -62,7 +83,7 @@ class _MyHomeState extends State<MyHome> {
           ),
           Center(
             child: SizedBox(
-              height: 50,
+              height: 60,
               width: 280,
               child: Text(
                 "Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below",
@@ -71,7 +92,7 @@ class _MyHomeState extends State<MyHome> {
               ),
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 20),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -150,21 +171,40 @@ class _MyHomeState extends State<MyHome> {
                   ElevatedButton(
                       child: Text('Sumbit'),
                       onPressed: () {
+                        String name_first = firstName.text;
+                        String last_name = lastName.text;
+                        String mail = email.text;
+                        String desk = content.text;
+
                         setState(() {
                           showDialog(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                      title: Center(
-                                          child: Text(
-                                              "Thank You for your message")),
-                                      actions: [
-                                        TextButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text('Oke')),
-                                      ]));
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('Message sent!'),
+                                content: Column(
+                                  children: [
+                                    Text('Name : ${name_first}  ${last_name}'),
+                                    Text('Email : ${mail}'),
+                                    Text('Message : ${desk}'),
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: Text('close'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         });
+                        firstName.clear();
+                        lastName.clear();
+                        email.clear();
+                        content.clear();
                       }),
                 ],
               ),
@@ -174,21 +214,4 @@ class _MyHomeState extends State<MyHome> {
       ),
     );
   }
-
-  // Future<String?> AlertEdit(BuildContext context) {
-  //   return showDialog<String>(
-  //       context: context,
-  //       builder: (BuildContext context) => AlertDialog(
-  //               title: const Text('Informasi !'),
-  //               content: Column(children: [
-  //                 Text('Pesan Telah Terkirim!'),
-  //               ]),
-  //               actions: [
-  //                 TextButton(
-  //                     onPressed: () {
-  //                       Navigator.pop(context);
-  //                     },
-  //                     child: Text('Oke')),
-  //               ]));
-  // }
 }
