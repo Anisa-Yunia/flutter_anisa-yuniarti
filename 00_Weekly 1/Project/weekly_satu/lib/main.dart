@@ -147,6 +147,7 @@ class _MyHomeState extends State<MyHome> {
                 children: [
                   Text('Email*'),
                   TextField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: email,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(gapPadding: 10),
