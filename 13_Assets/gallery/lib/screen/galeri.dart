@@ -80,7 +80,8 @@ class CardExample extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => DetailGaleri(),
+                                builder: (context) =>
+                                    DetailGaleri(imageUrl: imageUrl),
                               ),
                             );
                           },
@@ -100,8 +101,10 @@ class CardExample extends StatelessWidget {
           debugPrint('Card tapped.');
         },
         child: SizedBox(
+            child: Hero(
+          tag: 'thumbnail_$imageUrl', // Tag harus unik
           child: Image.network(imageUrl),
-        ),
+        )),
       ),
     );
   }

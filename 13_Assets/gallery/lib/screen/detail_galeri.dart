@@ -1,34 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:gallery/widget/bottom_navigato.dart';
-import 'package:gallery/widget/drawer_widget.dart';
 
-class DetailGaleri extends StatefulWidget {
-  const DetailGaleri({super.key});
+class DetailGaleri extends StatelessWidget {
+  final String imageUrl;
 
-  @override
-  State<DetailGaleri> createState() => _DetailGaleriState();
-}
+  const DetailGaleri({Key? key, required this.imageUrl}) : super(key: key);
 
-class _DetailGaleriState extends State<DetailGaleri> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Gallery Trial',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
-        useMaterial3: true,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detail Gambar'),
       ),
-      home: Scaffold(
-        drawer: MyDrawer(),
-        bottomNavigationBar: mybottomnav(),
-        appBar: AppBar(
-          title: Text("My Gallery"),
-          backgroundColor: Color.fromARGB(255, 240, 214, 214),
-          centerTitle: true,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // Wrap gambar dengan Hero dengan tag yang sama
+            Hero(
+              tag: 'image_$imageUrl',
+              child: Image.network(imageUrl),
+            ),
+            SizedBox(height: 16.0),
+            Text('Deskripsi Gambar'),
+            // Tambahkan deskripsi atau konten detail lainnya di sini
+          ],
         ),
-        body: Text('halaman Baru'),
-        //bottomSheet: BottomSheet(builder: , onClosing: () {  },),
       ),
     );
   }
