@@ -2,7 +2,7 @@
 
 ### Apa itu Navigation
 
-Navigation adalah fungsing yang membantu untuk berpindah halaman dari halama satu ke halaman lain
+Navigation adalah fungsi yang membantu untuk berpindah halaman dari halama satu ke halaman lain
 
 ### Navigation Dasar
 
