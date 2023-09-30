@@ -35,6 +35,10 @@ class MyGridView extends StatelessWidget {
           imageUrl:
               'https://images.unsplash.com/photo-1520763185298-1b434c919102?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGZsb3dlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60',
         ),
+        CardExample(
+          imageUrl:
+              'https://plus.unsplash.com/premium_photo-1675807480763-4ae9d850657d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zmxvd2VyfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60',
+        ),
       ],
     );
   }
