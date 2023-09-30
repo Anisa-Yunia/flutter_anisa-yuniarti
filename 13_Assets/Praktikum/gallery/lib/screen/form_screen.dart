@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/screen/form.dart';
+import 'package:gallery/widget/drawer_widget.dart';
 
 class FormScreen extends StatelessWidget {
   const FormScreen({Key? key}) : super(key: key);
@@ -7,6 +8,7 @@ class FormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: MyDrawer(),
         appBar: AppBar(
           title: Text("Create New Contact"),
         ),
